@@ -3,7 +3,7 @@ package californiacybertales.labraintory.Tasks;
 import java.util.ArrayList;
 
 /**
- * Created by romach on 23.04.16.
+ * Created by romach on 23.04.16
  */
 public class WriteTask extends Task
 {
