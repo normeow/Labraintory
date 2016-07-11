@@ -82,7 +82,7 @@ public class TextCompareTask extends Task
 
     @Override
     protected boolean checkCorrect() {
-        boolean isCorrect = checkCorrect();
+        boolean isCorrect = checkTask();
         if(!isCorrect)
         {
             this.user_reply = null;

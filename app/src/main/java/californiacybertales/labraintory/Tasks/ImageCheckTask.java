@@ -79,7 +79,7 @@ public class ImageCheckTask extends Task
 
     @Override
     protected boolean checkCorrect() {
-        boolean isCorrect = checkCorrect();
+        boolean isCorrect = checkTask();
         if(!isCorrect)
         {
             this.user_reply = -1;
