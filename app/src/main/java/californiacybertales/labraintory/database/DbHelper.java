@@ -60,14 +60,28 @@ public class DbHelper extends SQLiteOpenHelper {
         this.onCreate(db);
     }
 
+    //returns id of the Subject
+    public int addSubject(Subject s){
+        return -1;
+    }
+
+    public int addNode(String nodesSubject){
+        return -1;
+    }
+
+
+    public int addTask(String nodesSubject){
+        return -1;
+    }
+
     public ArrayList<Subject> getSubjects(String SubjectName){
         ArrayList<Node> phys = new ArrayList<Node>();
-        phys.add(new Node(1, "Кинематика", null));
-        phys.add(new Node(2, "Кинематика2", null));
-        phys.add(new Node(3, "Кинематика3", null));
-        phys.add(new Node(4, "Кинематика4", null));
+        phys.add(new Node(1, 0, "Кинематика", null));
+        phys.add(new Node(2, 0, "Кинематика2", null));
+        phys.add(new Node(3, 0, "Кинематика3", null));
+        phys.add(new Node(4, 0, "Кинематика4", null));
         Subject s = new Subject(0, "Physics", phys);
-        
+
         ArrayList<Subject> res = new ArrayList<>();
         res.add(s);
         return res;

@@ -10,6 +10,7 @@ import californiacybertales.labraintory.tasks.*;
 public class Node {
     private int id;
     private String name;
+    private int subj_id;
     //todo add scores
     private ArrayList<Task> tasks;
 
@@ -25,7 +26,7 @@ public class Node {
         id = -1;
     }
 
-    public Node(int id, String name, ArrayList<Task> tasks){
+    public Node(int id, int subj_id, String name, ArrayList<Task> tasks){
         this.id = id;
         this.name = name;
         this.tasks = tasks;
