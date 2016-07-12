@@ -19,8 +19,9 @@ public class WriteTask extends Task
     }
 
     @Override
-    public boolean checkTask() {
-        return this.correct_answers.contains(user_reply);
+    public boolean checkTask()
+    {
+        return user_reply != "" && this.correct_answers.contains(user_reply);
     }
 
     @Override
