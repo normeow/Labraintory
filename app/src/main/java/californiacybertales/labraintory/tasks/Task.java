@@ -1,4 +1,4 @@
-package californiacybertales.labraintory.Tasks;
+package californiacybertales.labraintory.tasks;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -28,7 +28,7 @@ public class Task
 
     protected boolean checkCorrect() {return false; }
 
-    protected int RandInt(Random rd, int min, int max)
+    protected int rand_int(Random rd, int min, int max)
     {
         return rd.nextInt(max - min) + min;
     }

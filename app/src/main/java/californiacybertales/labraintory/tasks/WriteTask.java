@@ -1,4 +1,4 @@
-package californiacybertales.labraintory.Tasks;
+package californiacybertales.labraintory.tasks;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package californiacybertales.labraintory.Tasks;
+package californiacybertales.labraintory.tasks;
 
 import android.graphics.drawable.Drawable;
 
@@ -38,14 +38,14 @@ public class ImageCheckTask extends Task
         super(id, Scores, Description, Corrects, Wrongs);
         this.image = image;
 
-        mixed = MixAnswers();
+        mixed = mix_answers();
     }
 
-    private ArrayList<String> MixAnswers()
+    private ArrayList<String> mix_answers()
     {
         ArrayList<String> res = new ArrayList<String>(4);
         Random rd = new Random();
-        correct_num = RandInt(rd, 0, 3);
+        correct_num = rand_int(rd, 0, 3);
 
         ArrayList<Integer> ind = new ArrayList<Integer>(this.wrong_answers.size());
         for(int i = 0; i < ind.size(); ++i)
@@ -83,7 +83,7 @@ public class ImageCheckTask extends Task
         if(!isCorrect)
         {
             this.user_reply = -1;
-            this.mixed = MixAnswers();
+            this.mixed = mix_answers();
         }
 
         return isCorrect;

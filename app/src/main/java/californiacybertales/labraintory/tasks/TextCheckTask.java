@@ -1,4 +1,4 @@
-package californiacybertales.labraintory.Tasks;
+package californiacybertales.labraintory.tasks;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -34,7 +34,7 @@ public class TextCheckTask extends Task
         super(id, Scores, Description, Corrects, Wrongs);
     }
 
-    public ArrayList<String> MixAnswers()
+    public ArrayList<String> mix_answers()
     {
         ArrayList<String> res = new ArrayList<>();
         res.add(this.correct_answers.get(0));
@@ -88,7 +88,7 @@ public class TextCheckTask extends Task
         if(!isCorrect)
         {
             this.user_reply = -1;
-            //this.mixed = MixAnswers();
+            //this.mixed = mix_answers();
         }
 
         // вот тут добавить scores

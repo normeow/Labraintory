@@ -1,6 +1,4 @@
-package californiacybertales.labraintory.Tasks;
-
-import java.util.ArrayList;
+package californiacybertales.labraintory.tasks;
 
 /**
  * Created by romach on 24.04.16.

@@ -1,4 +1,4 @@
-package californiacybertales.labraintory.Tasks;
+package californiacybertales.labraintory.tasks;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -44,10 +44,10 @@ public class TextCompareTask extends Task
 
         this.first = First;
         this.second = Second;
-        mixed = MixAnswers();
+        mixed = mix_answers();
     }
 
-    private ArrayList<String> MixAnswers()
+    private ArrayList<String> mix_answers()
     {
         ArrayList<String> res = new ArrayList<>();
 
