@@ -67,8 +67,10 @@ public class DbHelper extends SQLiteOpenHelper {
         phys.add(new Node(3, "Кинематика3", null));
         phys.add(new Node(4, "Кинематика4", null));
         Subject s = new Subject(0, "Physics", phys);
-
-        return null;
+        
+        ArrayList<Subject> res = new ArrayList<>();
+        res.add(s);
+        return res;
     }
 
 
