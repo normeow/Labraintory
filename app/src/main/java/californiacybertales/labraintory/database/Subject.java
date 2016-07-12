@@ -7,6 +7,19 @@ import java.util.ArrayList;
  */
 public class Subject {
     private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNodes(ArrayList<Node> nodes) {
+        this.nodes = nodes;
+    }
+
     private String name;
 
     public String getName() {

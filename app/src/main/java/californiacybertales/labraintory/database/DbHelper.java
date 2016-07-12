@@ -1,11 +1,14 @@
 package californiacybertales.labraintory.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+
+import californiacybertales.labraintory.tasks.*;
 
 /**
  * Created by Tatiana on 12/07/2016.
@@ -18,6 +21,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String NAME_TABLE_SUBJECTS = "subjects";
     private static final String NAME_TABLE_NODES = "nodes";
     private static final String NAME_TABLE_BINDED_NODES = "binded_nodes";
+    private static final String NAME_TABLE_TASKS = "tasks";
 
     private static final String KEY_SUBJ_ID = "id";
     private static final String KEY_SUBJ_NAME = "subj_name";
@@ -25,6 +29,8 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_NODE_ID = "id";
     private static final String KEY_NODE_NAME = "node_name";
     private static final String KEY_FOREIGN_TOSUBJECTS = "f_key_subj";
+
+    private static final String KEY_TASK_ID = "id";
 
     //todo KEY_LOCALE
 
@@ -61,17 +67,40 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     //returns id of the Subject
-    public int addSubject(Subject s){
-        return -1;
+    public int addSubject(Subject subject){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(KEY_SUBJ_NAME, subject.getName());
+        int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_SUBJECTS, null, contentValues)));
+        db.close();
+        return id;
     }
 
-    public int addNode(String nodesSubject){
-        return -1;
+
+
+    public int addNode(Node node){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(KEY_NODE_NAME, node.getName());
+        contentValues.put(KEY_FOREIGN_TOSUBJECTS, node.getSubj_id());
+        int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_NODES, null, contentValues)));
+        db.close();
+        return id;
     }
 
+    public int addTask(Task task){
+        SQLiteDatabase db = this.getWritableDatabase();
 
-    public int addTask(String nodesSubject){
-        return -1;
+        ContentValues contentValues = new ContentValues();
+        if (task instanceof TextCheckTask){
+
+        }
+        int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_TASKS, null, contentValues)));
+        db.close();
+        return id;
     }
 
     public ArrayList<Subject> getSubjects(String SubjectName){

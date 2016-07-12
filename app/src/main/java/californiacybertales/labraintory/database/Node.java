@@ -11,6 +11,31 @@ public class Node {
     private int id;
     private String name;
     private int subj_id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSubj_id() {
+        return subj_id;
+    }
+
+    public void setSubj_id(int subj_id) {
+        this.subj_id = subj_id;
+    }
+
+    public ArrayList<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(ArrayList<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     //todo add scores
     private ArrayList<Task> tasks;
 
