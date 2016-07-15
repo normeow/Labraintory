@@ -47,15 +47,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // ***************
-
-        ListView lvMain = (ListView) findViewById(R.id.lvMain);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, UserPrefs.getCurrentSubjectId());
-
-        lvMain.setAdapter(adapter);
-
     }
 
     @Override
