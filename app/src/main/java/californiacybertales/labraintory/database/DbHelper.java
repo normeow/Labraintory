@@ -18,14 +18,26 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "labraintorydb";
 
     private static final String NAME_TABLE_SUBJECTS = "subjects";
-    private static final String NAME_TABLE_NODES = "nodes";
-    private static final String NAME_TABLE_BINDED_NODES = "binded_nodes";
+    private static final String KEY_SUBJ_ID = "id";
+
+    private static final String NAME_TABLE_SUBJ_NAMES_TR = "subj_names_tr";
+    private static final String KEY_SUBJ_NAMES_TR_ID = "id";
+    private static final String KEY_FOREIGN_SUBJ_ID = "f_key_subj_id";
+
+    private static final String NAME_TABLE_SECTIONS = "sections";
+    private static final String KEY_SECTION_ID = "id";
+    //KEY_FOREIGN_SUBJ_ID
+    private static final String KEY_SCORES_TO_OPEN = "open_scores";
+
+    private static final String NAME_TABLE_SECTION_NAMES_TR = "sect_names_tr";
+    private static final String KEY_SECTION_NAMES_TR_ID = "id";
+    private static final String KEY_FOREIGN_SECT_ID = "f_key_sect_id";
+
+    private static final String NAME_TABLE_BINDED_SECTIONS = "binded_nodes";
     private static final String NAME_TABLE_TASKS = "tasks";
 
-    private static final String KEY_SUBJ_ID = "id";
     private static final String KEY_SUBJ_NAME = "subj_name";
 
-    private static final String KEY_NODE_ID = "id";
     private static final String KEY_NODE_NAME = "node_name";
     private static final String KEY_FOREIGN_TOSUBJECTS = "f_key_subj";
 
@@ -38,21 +50,9 @@ public class DbHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_SUBJECT_TABLE =
-                "CREATE TABLE " + NAME_TABLE_SUBJECTS + " (" +
-                KEY_SUBJ_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_SUBJ_NAME + "TEXT)";
 
-
-        String CREATE_NODES_TABLE =
-                "CREATE TABLE " + NAME_TABLE_NODES + " (" +
-                KEY_NODE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_NODE_NAME + "TEXT " +
-                KEY_FOREIGN_TOSUBJECTS + " INTEGER, " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TOSUBJECTS + ") REFERENCES " + NAME_TABLE_SUBJECTS + " (" + KEY_SUBJ_ID + ") )";
-
-        db.execSQL(CREATE_SUBJECT_TABLE);
-        db.execSQL(CREATE_NODES_TABLE);
+       // db.execSQL(CREATE_SUBJECT_TABLE);
+        //db.execSQL(CREATE_NODES_TABLE);
 
 
     }
@@ -60,7 +60,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS" + NAME_TABLE_SUBJECTS);
-        db.execSQL("DROP TABLE IF EXISTS" + NAME_TABLE_NODES);
+        db.execSQL("DROP TABLE IF EXISTS" + NAME_TABLE_SECTIONS);
         // create fresh table
         this.onCreate(db);
     }
@@ -80,14 +80,14 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public int addNode(Node node){
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        /*SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_NODE_NAME, node.getName());
         contentValues.put(KEY_FOREIGN_TOSUBJECTS, node.getSubj_id());
-        int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_NODES, null, contentValues)));
-        db.close();
-        return id;
+        int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_SECTIONS, null, contentValues)));
+        db.close();*/
+        return -1;
     }
 
     public int addTask(Task task){
