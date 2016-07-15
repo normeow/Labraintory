@@ -18,17 +18,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/subject_list">
-        </TextView>
-        <fragment
-            android:name="californiacybertales.labraintory.tasks.fragments.radioChoiseFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-        </fragment>
+
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>
