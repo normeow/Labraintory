@@ -7,7 +7,7 @@ import java.util.Random;
  * Created by romach on 23.04.16.
  */
 
-public class Task
+public abstract class Task
 {
     public String id;
     public int scores;
@@ -24,9 +24,9 @@ public class Task
         this.wrong_answers = Wrongs;
     }
 
-    public boolean checkTask() {return false; }
+    public abstract boolean checkTask();
 
-    protected boolean checkCorrect() {return false; }
+    protected abstract boolean checkCorrect();
 
     protected int rand_int(Random rd, int min, int max)
     {

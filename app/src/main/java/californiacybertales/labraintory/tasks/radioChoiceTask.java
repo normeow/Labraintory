@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Текстовое задание с выбором одного правильного ответа
  */
-public class TextCheckTask extends Task
+public class radioChoiceTask extends Task
 {
     public int getCorrect_num() {
         return correct_num;
@@ -29,7 +29,7 @@ public class TextCheckTask extends Task
 
     private int user_reply = -1;
 
-    public TextCheckTask(String id, int Scores, String Description, ArrayList<String> Corrects, ArrayList<String> Wrongs)
+    public radioChoiceTask(String id, int Scores, String Description, ArrayList<String> Corrects, ArrayList<String> Wrongs)
     {
         super(id, Scores, Description, Corrects, Wrongs);
     }

@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * Created by romach on 23.04.16.
  */
-public class ImageCheckTask extends Task
+public class radioImageChoiceTask extends Task
 {
     private Drawable image = null;
 
@@ -33,8 +33,8 @@ public class ImageCheckTask extends Task
     private int correct_num = 0;
     private ArrayList<String> mixed = null;
 
-    public ImageCheckTask(String id, int Scores, String Description, ArrayList<String> Corrects,
-                          ArrayList<String> Wrongs, Drawable image) {
+    public radioImageChoiceTask(String id, int Scores, String Description, ArrayList<String> Corrects,
+                                ArrayList<String> Wrongs, Drawable image) {
         super(id, Scores, Description, Corrects, Wrongs);
         this.image = image;
 

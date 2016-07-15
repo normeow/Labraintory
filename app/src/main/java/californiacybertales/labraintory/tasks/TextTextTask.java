@@ -7,7 +7,7 @@ import java.util.Random;
  * Created by romach on 23.04.16.
  * Задание на сопоставление колонок
  */
-public class TextCompareTask extends Task
+public class TextTextTask extends Task
 {
     public ArrayList<String> getFirst() {
         return first;
@@ -35,7 +35,7 @@ public class TextCompareTask extends Task
 
     // ********************
 
-    public TextCompareTask(String id, int Scores, String Description, ArrayList<String> First, ArrayList<String> Second)
+    public TextTextTask(String id, int Scores, String Description, ArrayList<String> First, ArrayList<String> Second)
     {
         super(id, Scores, Description, null, null);
 

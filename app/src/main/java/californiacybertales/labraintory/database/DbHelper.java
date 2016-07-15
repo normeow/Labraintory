@@ -2,7 +2,6 @@ package californiacybertales.labraintory.database;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -95,7 +94,7 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        if (task instanceof TextCheckTask){
+        if (task instanceof radioChoiceTask){
 
         }
         int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_TASKS, null, contentValues)));

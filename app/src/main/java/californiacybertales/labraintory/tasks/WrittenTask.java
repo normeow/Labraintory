@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by romach on 23.04.16
  */
-public class WriteTask extends Task
+public class WrittenTask extends Task
 {
     private String user_reply;
 
@@ -13,7 +13,7 @@ public class WriteTask extends Task
         this.user_reply = user_reply;
     }
 
-    public WriteTask(String id, int Scores, String Description, ArrayList<String> Corrects) {
+    public WrittenTask(String id, int Scores, String Description, ArrayList<String> Corrects) {
         super(id, Scores, Description, Corrects, null);
         user_reply = "";
     }
