@@ -197,13 +197,13 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
 
-    public int addNode(Node node){
+    public int addSection(Section section){
 
         /*SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_NODE_NAME, node.getName());
-        contentValues.put(KEY_FOREIGN_TOSUBJECTS, node.getSubj_id());
+        contentValues.put(KEY_NODE_NAME, section.getName());
+        contentValues.put(KEY_FOREIGN_TOSUBJECTS, section.getSubj_id());
         int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_SECTIONS, null, contentValues)));
         db.close();*/
         return -1;
@@ -222,11 +222,11 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Subject> getSubjects(String SubjectName){
-        ArrayList<Node> phys = new ArrayList<Node>();
-        phys.add(new Node(1, 0, "Кинематика", null));
-        phys.add(new Node(2, 0, "Кинематика2", null));
-        phys.add(new Node(3, 0, "Кинематика3", null));
-        phys.add(new Node(4, 0, "Кинематика4", null));
+        ArrayList<Section> phys = new ArrayList<Section>();
+        phys.add(new Section(1, 0, "Кинематика", null));
+        phys.add(new Section(2, 0, "Кинематика2", null));
+        phys.add(new Section(3, 0, "Кинематика3", null));
+        phys.add(new Section(4, 0, "Кинематика4", null));
         Subject s = new Subject(0, "Physics", phys);
 
         ArrayList<Subject> res = new ArrayList<>();

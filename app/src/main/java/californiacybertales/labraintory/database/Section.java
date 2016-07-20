@@ -7,7 +7,7 @@ import californiacybertales.labraintory.tasks.*;
 /**
  * Created by Tatiana on 12/07/2016.
  */
-public class Node {
+public class Section {
     private int id;
     private String name;
     private int subj_id;
@@ -47,11 +47,11 @@ public class Node {
         return name;
     }
 
-    public Node(){
+    public Section(){
         id = -1;
     }
 
-    public Node(int id, int subj_id, String name, ArrayList<Task> tasks){
+    public Section(int id, int subj_id, String name, ArrayList<Task> tasks){
         this.id = id;
         this.name = name;
         this.tasks = tasks;

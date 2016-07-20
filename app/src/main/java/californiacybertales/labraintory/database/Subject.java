@@ -16,7 +16,7 @@ public class Subject {
         this.name = name;
     }
 
-    public void setNodes(ArrayList<Node> nodes) {
+    public void setNodes(ArrayList<Section> nodes) {
         this.nodes = nodes;
     }
 
@@ -26,7 +26,7 @@ public class Subject {
         return name;
     }
 
-    public ArrayList<Node> getNodes() {
+    public ArrayList<Section> getNodes() {
         return nodes;
     }
 
@@ -34,13 +34,13 @@ public class Subject {
         return id;
     }
 
-    private ArrayList<Node> nodes;
+    private ArrayList<Section> nodes;
 
     public Subject(){
         id = -1;
     }
 
-    public Subject(int id, String name, ArrayList<Node> nodes){
+    public Subject(int id, String name, ArrayList<Section> nodes){
         this.id = id;
         this.name = name;
         this.nodes = nodes;
