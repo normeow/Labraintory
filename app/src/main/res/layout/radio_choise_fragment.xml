@@ -5,33 +5,39 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="test_string"
-        android:id="@+id/textView2" />
+        android:text="@string/ask_choose_right"
+        android:id="@+id/textView2"
+        android:layout_gravity="top"
+        android:height="60dp"
+        android:gravity="center"
+        android:layout_marginTop="65dp" />
 
     <RadioButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choose 1"
-        android:id="@+id/radioButton" />
+        android:id="@+id/radioButton0"
+        android:checked="false"
+        android:clickable="false" />
 
     <RadioButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choose 2"
+        android:id="@+id/radioButton1" />
+
+    <RadioButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose 3"
         android:id="@+id/radioButton2" />
 
     <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose 3"
-        android:id="@+id/radioButton3" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choose 4"
-        android:id="@+id/radioButton4" />
+        android:id="@+id/radioButton3" />
 </LinearLayout>

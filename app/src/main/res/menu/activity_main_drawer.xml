@@ -14,9 +14,11 @@
 
     <item android:title="">
         <menu>
-            <item android:id="@+id/nav_share" android:icon="@drawable/physics"
+            <item android:id="@+id/nav_share"
+                android:icon="@drawable/physics"
                 android:title="Physics" />
-            <item android:id="@+id/nav_send" android:icon="@drawable/astronomy"
+            <item android:id="@+id/nav_send"
+                android:icon="@drawable/astronomy"
                 android:title="Astronomy" />
         </menu>
     </item>
