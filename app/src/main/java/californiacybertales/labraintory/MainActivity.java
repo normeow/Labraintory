@@ -3,6 +3,7 @@ package californiacybertales.labraintory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,11 +17,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import californiacybertales.labraintory.database.DbHelper;
+import californiacybertales.labraintory.database.Subject;
+import californiacybertales.labraintory.fragments.SubjectsFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SubjectsFragment.OnSubjectFragmentListener {
 
     private static DbHelper db;
+    private SubjectsFragment subjectsFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        subjectsFragment = new SubjectsFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.framelayout_main, subjectsFragment).commit();
 
     }
 
@@ -104,5 +112,15 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onReloadSubjectList() {
+        subjectsFragment.setSubjectsList(db.getSubjects());
+    }
+
+    @Override
+    public void onSubjectClicked(Subject s) {
+        //TODO show SectionsFragment
     }
 }

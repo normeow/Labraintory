@@ -26,4 +26,7 @@
 
     <string name="subject_list">List of physics subject</string>
     <string name="ask_choose_right">Choose the right answer</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

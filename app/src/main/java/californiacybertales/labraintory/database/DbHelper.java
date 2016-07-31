@@ -234,7 +234,7 @@ public class DbHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    public ArrayList<Subject> getSubjects(String SubjectName){
+    public ArrayList<Subject> getSubjects(){
         ArrayList<Section> phys = new ArrayList<Section>();
         phys.add(new Section(1, 0, "Кинематика", null));
         phys.add(new Section(2, 0, "Кинематика2", null));

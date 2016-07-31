@@ -1,6 +1,7 @@
 package californiacybertales.labraintory.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,9 @@ public class SubjectAdapter extends ArrayAdapter<Subject> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item1, null);
         ((ImageView)convertView.findViewById(R.id.icon_imview)).setImageBitmap(subject.getIcon());
         ((TextView)convertView.findViewById(R.id.textview_subname)).setText(subject.getName());
+        //((TextView)convertView.findViewById(android.R.id.text1)).setText(subject.getName());
+
+        Log.v("SubjectAdapter", "trying to getview " + subject.getName());
         return convertView;
     }
 }
