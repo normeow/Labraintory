@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 
 import java.util.ArrayList;
 
+import californiacybertales.labraintory.App;
 import californiacybertales.labraintory.R;
 
 /**
@@ -12,7 +13,6 @@ import californiacybertales.labraintory.R;
  */
 public class Subject {
     private Bitmap icon;
-    private static String DEFAULT_ICON =  "drawable://" + R.drawable.physics;
 
     public Bitmap getIcon() {
         return icon;
@@ -72,7 +72,7 @@ public class Subject {
         this.id = id;
         this.name = name;
         this.sections = sections;
-        this.setIcon(DEFAULT_ICON);
+        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.physics));
     }
 
 
