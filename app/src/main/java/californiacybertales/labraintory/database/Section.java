@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 
 import java.util.ArrayList;
 
+import californiacybertales.labraintory.App;
+import californiacybertales.labraintory.R;
 import californiacybertales.labraintory.tasks.*;
 
 /**
@@ -67,9 +69,17 @@ public class Section {
         id = -1;
     }
 
+    public Section(int id, int subj_id, String name, ArrayList<Lesson> lessons, String icon_path){
+        this.id = id;
+        this.name = name;
+        this.lessons = lessons;
+        this.setIcon(icon_path);
+    }
+
     public Section(int id, int subj_id, String name, ArrayList<Lesson> lessons){
         this.id = id;
         this.name = name;
         this.lessons = lessons;
+        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.default_image));
     }
 }

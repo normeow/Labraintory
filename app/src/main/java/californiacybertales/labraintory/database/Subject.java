@@ -72,7 +72,7 @@ public class Subject {
         this.id = id;
         this.name = name;
         this.sections = sections;
-        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.physics));
+        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.default_image));
     }
 
 
