@@ -11,6 +11,7 @@ public class Section {
     private int id;
     private String name;
     private int subj_id;
+    private ArrayList<Lesson> lessons;
 
     public void setId(int id) {
         this.id = id;
@@ -28,16 +29,14 @@ public class Section {
         this.subj_id = subj_id;
     }
 
-    public ArrayList<Task> getTasks() {
-        return tasks;
+    public ArrayList<Lesson> getLessons() {
+        return lessons;
     }
 
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
+    public void setTasks(ArrayList<Lesson> lessons) {
+        this.lessons = lessons;
     }
 
-    //todo add scores
-    private ArrayList<Task> tasks;
 
     public int getId() {
         return id;
@@ -51,9 +50,9 @@ public class Section {
         id = -1;
     }
 
-    public Section(int id, int subj_id, String name, ArrayList<Task> tasks){
+    public Section(int id, int subj_id, String name, ArrayList<Lesson> lessons){
         this.id = id;
         this.name = name;
-        this.tasks = tasks;
+        this.lessons = lessons;
     }
 }

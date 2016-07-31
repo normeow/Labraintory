@@ -28,11 +28,15 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_SECT_NAME = "sect_name";
     private static final String KEY_FOREIGN_SUBJ_ID = "f_key_subj_id";
 
+    private static final String NAME_TABLE_LESSONS = "lessons";
+    private static final String KEY_LESSON_NAME = "lesson_name";
+    private static final String KEY_FOREIGN_SECT_ID = "f_key_sect_id";
+
     private static final String NAME_TABLE_TYPE_TASK = "types_tasks";
     private static final String KEY_TASK_TYPE = "type";
 
     private static final String NAME_TABLE_TASKS = "tasks";
-    private static final String KEY_FOREIGN_SECTION_ID = "f_key_section_id";
+    private static final String KEY_FOREIGN_LESSON_ID = "f_key_section_id";
     private static final String KEY_FOREIGN_TASK_TYPE_ID = "type_id";
     private static final String KEY_TASK_DESCIPTION = "description";
     private static final String KEY_MAXSCORES = "max_scores";
@@ -60,6 +64,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         createSubjTable(db);
         createSectionTable(db);
+        createLessonsTable(db);
         createTypeTaskTable(db);
         createTaskTable(db);
         createChoiceRightAnsTable(db);
@@ -109,12 +114,20 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
+    public void createLessonsTable(SQLiteDatabase db){
+        String query = "CREATE_TABLE " + NAME_TABLE_LESSONS + " (" + KEY_ID + " INTEGER " +
+                KEY_LESSON_NAME + " TEXT " +
+                "FOREIGN KEY(" + KEY_FOREIGN_SECT_ID + ") REFERENCES " + NAME_TABLE_SECTIONS + " (" + KEY_ID + ")"+
+                ")";
+        db.execSQL(query);
+    }
+
     public void createTaskTable(SQLiteDatabase db){
         String query = "CREATE_TABLE " + NAME_TABLE_TASKS + " (" + KEY_ID + " INTEGER " +
                 KEY_TASK_DESCIPTION + " TEXT " +
                 KEY_MAXSCORES + " INTEGER " +
                 KEY_TASK_CURSCORES + " INTEGER " +
-                "FOREIGN KEY(" + KEY_FOREIGN_SECTION_ID + ") REFERENCES " + NAME_TABLE_SECTIONS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_LESSON_ID + ") REFERENCES " + NAME_TABLE_SECTIONS + " (" + KEY_ID + ")"+
                 "FOREIGN KEY(" + KEY_FOREIGN_TASK_TYPE_ID + ") REFERENCES " + NAME_TABLE_TYPE_TASK + " (" + KEY_ID + ")"+
                 ")";
         db.execSQL(query);
