@@ -1,5 +1,8 @@
 package californiacybertales.labraintory.database;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import java.util.ArrayList;
 
 import californiacybertales.labraintory.tasks.*;
@@ -13,6 +16,20 @@ public class Section {
     private int subj_id;
     private ArrayList<Lesson> lessons;
 
+    private Bitmap icon;
+
+    public Bitmap getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Bitmap icon) {
+        this.icon = icon;
+    }
+
+    public void setIcon(String iconPath) {
+        Bitmap icon = BitmapFactory.decodeFile(iconPath);
+        this.icon = icon;
+    }
     public void setId(int id) {
         this.id = id;
     }
