@@ -196,7 +196,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-
+//we don't need this actually, coz' it's abut server-side
     public int addSection(Section section){
 
         /*SQLiteDatabase db = this.getWritableDatabase();

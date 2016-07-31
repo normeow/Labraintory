@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class SplashScreen extends AppCompatActivity {
-    private static final int AUTO_HIDE_DELAY_MILLIS = 400;
+    private static final int AUTO_HIDE_DELAY_MILLIS = 700;
 
 
     @Override
