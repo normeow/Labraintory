@@ -80,6 +80,6 @@ public class Section {
         this.id = id;
         this.name = name;
         this.lessons = lessons;
-        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.default_image));
+        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.physics));
     }
 }

@@ -57,8 +57,16 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_IMAGE = "is_image";
     private static final String KEY_ANSWER = "ans";
 
+    private static DbHelper instance;
+
     public DbHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
+    }
+
+    public static DbHelper getInstance(Context context){
+        if (instance == null)
+            instance = new DbHelper(context);
+        return instance;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {

@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:maxWidth="600dp"
-        android:maxHeight="600dp"
+        android:maxWidth="300dp"
+        android:maxHeight="300dp"
         android:scaleType="fitCenter"
         android:src="@drawable/splash_brain"/>
 
