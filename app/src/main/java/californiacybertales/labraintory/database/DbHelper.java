@@ -59,15 +59,16 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private static DbHelper instance;
 
-    public DbHelper(Context context){
+    public DbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-    public static DbHelper getInstance(Context context){
+    public static DbHelper getInstance(Context context) {
         if (instance == null)
             instance = new DbHelper(context);
         return instance;
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         createSubjTable(db);
@@ -94,119 +95,116 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
 
-    public  void dropTable(SQLiteDatabase db, String tableName){
+    public void dropTable(SQLiteDatabase db, String tableName) {
         db.execSQL("DROP TABLE IF EXISTS" + tableName);
     }
 
-    public  void createSubjTable(SQLiteDatabase db){
+    public void createSubjTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_SUBJECTS + " (" + KEY_ID + " INTEGER " +
                 KEY_SUBJ_NAME + " VARCHAR(20) " + ")";
         db.execSQL(query);
     }
 
-    public  void createSectionTable(SQLiteDatabase db){
+    public void createSectionTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_SECTIONS + " (" + KEY_ID + " INTEGER " +
                 KEY_SECT_NAME + " VARCHAR(50) " +
                 KEY_SCORES_TO_OPEN + " INTEGER " +
-                "FOREIGN KEY(" + KEY_FOREIGN_SUBJ_ID + ") REFERENCES " + NAME_TABLE_SUBJECTS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_SUBJ_ID + ") REFERENCES " + NAME_TABLE_SUBJECTS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public  void createTypeTaskTable(SQLiteDatabase db){
+    public void createTypeTaskTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_SECTIONS + " (" + KEY_ID + " INTEGER " +
                 KEY_SECT_NAME + " VARCHAR(50) " +
                 KEY_SCORES_TO_OPEN + " INTEGER " +
-                "FOREIGN KEY(" + KEY_FOREIGN_SUBJ_ID + ") REFERENCES " + NAME_TABLE_SUBJECTS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_SUBJ_ID + ") REFERENCES " + NAME_TABLE_SUBJECTS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createLessonsTable(SQLiteDatabase db){
+    public void createLessonsTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_LESSONS + " (" + KEY_ID + " INTEGER " +
                 KEY_LESSON_NAME + " TEXT " +
-                "FOREIGN KEY(" + KEY_FOREIGN_SECT_ID + ") REFERENCES " + NAME_TABLE_SECTIONS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_SECT_ID + ") REFERENCES " + NAME_TABLE_SECTIONS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createTaskTable(SQLiteDatabase db){
+    public void createTaskTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_TASKS + " (" + KEY_ID + " INTEGER " +
                 KEY_TASK_DESCIPTION + " TEXT " +
                 KEY_MAXSCORES + " INTEGER " +
                 KEY_TASK_CURSCORES + " INTEGER " +
-                "FOREIGN KEY(" + KEY_FOREIGN_LESSON_ID + ") REFERENCES " + NAME_TABLE_SECTIONS + " (" + KEY_ID + ")"+
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_TYPE_ID + ") REFERENCES " + NAME_TABLE_TYPE_TASK + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_LESSON_ID + ") REFERENCES " + NAME_TABLE_SECTIONS + " (" + KEY_ID + ")" +
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_TYPE_ID + ") REFERENCES " + NAME_TABLE_TYPE_TASK + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createChoiceRightAnsTable(SQLiteDatabase db){
+    public void createChoiceRightAnsTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_CHOICE_RIGHT_ANSWER + " (" + KEY_ID + " INTEGER " +
                 KEY_ANSWER + " TEXT " +
                 KEY_IMAGE + " BINARY " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createChoiceWrongAnsTable(SQLiteDatabase db){
+    public void createChoiceWrongAnsTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_CHOICE_WRONG_ANSWER + " (" + KEY_ID + " INTEGER " +
                 KEY_ANSWER + " TEXT " +
                 KEY_IMAGE + " BINARY " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createLecturesTable(SQLiteDatabase db){
+    public void createLecturesTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_LECTURES + " (" + KEY_ID + " INTEGER " +
                 KEY_ANSWER + " TEXT " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createWrittenQuestionTable(SQLiteDatabase db){
+    public void createWrittenQuestionTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_WRITTEN_QUESTIONS + " (" + KEY_ID + " INTEGER " +
                 KEY_QUESTION + " TEXT " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createWrittenAnswerTable(SQLiteDatabase db){
+    public void createWrittenAnswerTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_WRITTEN_ANSWERS + " (" + KEY_ID + " INTEGER " +
                 KEY_ANSWER + " TEXT " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-    public void createComparsionLeftTable(SQLiteDatabase db){
-        String query = "CREATE_TABLE " + NAME_TABLE_COMPARSION_LEFT+ " (" + KEY_ID + " INTEGER " +
+    public void createComparsionLeftTable(SQLiteDatabase db) {
+        String query = "CREATE_TABLE " + NAME_TABLE_COMPARSION_LEFT + " (" + KEY_ID + " INTEGER " +
                 KEY_IMAGE + " BINARY " +
                 KEY_ANSWER + " TEXT " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
 
-    public void createComparsionRightTable(SQLiteDatabase db){
+    public void createComparsionRightTable(SQLiteDatabase db) {
         String query = "CREATE_TABLE " + NAME_TABLE_COMPARSION_RIGHT + " (" + KEY_ID + " INTEGER " +
                 KEY_IMAGE + " BINARY " +
                 KEY_ANSWER + " TEXT " +
-                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")"+
-                "FOREIGN KEY(" + KEY_FOREIGN_LEFT_ID + ") REFERENCES " + NAME_TABLE_COMPARSION_LEFT + " (" + KEY_ID + ")"+
+                "FOREIGN KEY(" + KEY_FOREIGN_TASK_ID + ") REFERENCES " + NAME_TABLE_TASKS + " (" + KEY_ID + ")" +
+                "FOREIGN KEY(" + KEY_FOREIGN_LEFT_ID + ") REFERENCES " + NAME_TABLE_COMPARSION_LEFT + " (" + KEY_ID + ")" +
                 ")";
         db.execSQL(query);
     }
 
-
-
-    //returns id of the Subject
-    public int addSubject(Subject subject){
+    public int addSubject(Subject subject) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -216,9 +214,7 @@ public class DbHelper extends SQLiteOpenHelper {
         return id;
     }
 
-
-//we don't need this actually, coz' it's abut server-side
-    public int addSection(Section section){
+    public int addSection(Section section) {
 
         /*SQLiteDatabase db = this.getWritableDatabase();
 
@@ -230,11 +226,11 @@ public class DbHelper extends SQLiteOpenHelper {
         return -1;
     }
 
-    public int addTask(Task task){
+    public int addTask(Task task) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        if (task instanceof radioChoiceTask){
+        if (task instanceof radioChoiceTask) {
 
         }
         int id = Integer.parseInt(String.valueOf(db.insert(NAME_TABLE_TASKS, null, contentValues)));
@@ -242,7 +238,7 @@ public class DbHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    public ArrayList<Subject> getSubjects(){
+    public ArrayList<Subject> getSubjects() {
         ArrayList<Section> phys = new ArrayList<Section>();
         phys.add(new Section(1, 0, "Кинематика", null));
         phys.add(new Section(2, 0, "Кинематика2", null));
@@ -254,6 +250,15 @@ public class DbHelper extends SQLiteOpenHelper {
         res.add(s);
         return res;
     }
+
+    public ArrayList<Section> getSections(Subject subject){
+        ArrayList res = new ArrayList();
+
+        return res;
+    }
+
+
+
 
 
 }

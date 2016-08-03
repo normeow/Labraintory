@@ -12,23 +12,25 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import californiacybertales.labraintory.MainActivity;
 import californiacybertales.labraintory.R;
-import californiacybertales.labraintory.adapters.SubjectAdapter;
+import californiacybertales.labraintory.adapters.SectionAdapter;
+import californiacybertales.labraintory.database.Section;
 import californiacybertales.labraintory.database.Subject;
 
 /**
  * Created by Tatiana on 31/07/2016.
  */
-public class SubjectsFragment extends Fragment {
-    public interface OnSubjectFragmentListener{
-        void onReloadSubjectList();
-        void onSubjectClicked(Subject s);
+public class SectionsFragment extends Fragment {
+    private static String TAG = "SectionsFragment";
+
+    public interface OnSectionFragmentListener {
+        void onReloadSectionsList();
+        void onSectionClicked(Subject s);
     }
-    private ArrayList<Subject> subjects;
+    private ArrayList<Section> sections;
     private ListView mListView;
-    private SubjectAdapter adapter;
-    OnSubjectFragmentListener listener;
+    private SectionAdapter adapter;
+    OnSectionFragmentListener listener;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,23 +41,22 @@ public class SubjectsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.listview_layout, container, false);
-        listener.onReloadSubjectList();
+        listener.onReloadSectionsList();
         mListView = (ListView)view.findViewById(R.id.lview);
-        adapter = new SubjectAdapter(getContext(), R.layout.list_item1, subjects);
+        adapter = new SectionAdapter(getContext(), R.layout.list_item1, sections);
         mListView.setAdapter(adapter);
-        Log.v("SubjectFragment", "view created");
+        Log.v(TAG, "view created");
         return view;
     }
 
     @Override
     public void onAttach(Context context) {
-        listener = (OnSubjectFragmentListener)context;
+        listener = (OnSectionFragmentListener)context;
         super.onAttach(context);
     }
-
     //TODO why don't request DB directly? How about other pattenrs? Do we actually need use listener as a presenter?
-    public void setSubjectsList(ArrayList<Subject> subjects){
-        this.subjects = subjects;
+    public void setSectionsList(ArrayList<Section> sections){
+        this.sections = sections;
     }
 
 }

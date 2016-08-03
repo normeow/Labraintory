@@ -56,7 +56,6 @@ public class Section {
         this.lessons = lessons;
     }
 
-
     public int getId() {
         return id;
     }
@@ -80,6 +79,6 @@ public class Section {
         this.id = id;
         this.name = name;
         this.lessons = lessons;
-        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.physics));
+        this.setIcon(BitmapFactory.decodeResource(App.getContext().getResources(), R.drawable.default_image));
     }
 }

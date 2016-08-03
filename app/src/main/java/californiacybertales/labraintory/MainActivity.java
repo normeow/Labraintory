@@ -17,11 +17,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import californiacybertales.labraintory.database.DbHelper;
+import californiacybertales.labraintory.database.Lesson;
 import californiacybertales.labraintory.database.Subject;
+import californiacybertales.labraintory.fragments.LessonsFragment;
+import californiacybertales.labraintory.fragments.SectionsFragment;
 import californiacybertales.labraintory.fragments.SubjectsFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SubjectsFragment.OnSubjectFragmentListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SubjectsFragment.OnSubjectFragmentListener, SectionsFragment.OnSectionFragmentListener, LessonsFragment.OnLessonsFragmentListener {
 
     private static DbHelper db;
     private SubjectsFragment subjectsFragment;
@@ -33,15 +36,6 @@ public class MainActivity extends AppCompatActivity
         db = DbHelper.getInstance(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer != null) {
@@ -126,4 +120,26 @@ public class MainActivity extends AppCompatActivity
     public void onSubjectClicked(Subject s) {
         //TODO show SectionsFragment
     }
+
+    @Override
+    public void onReloadSectionsList() {
+
+    }
+
+    @Override
+    public void onSectionClicked(Subject s) {
+        //TODO show LessonsFragment
+    }
+
+    @Override
+    public void onReloadLessonsList() {
+
+    }
+
+    @Override
+    public void onLessonClicked(Lesson lesson) {
+
+        //TODO run test
+    }
+
 }
