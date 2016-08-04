@@ -1,4 +1,4 @@
 # Labraintory
-Keep meow & develop yourself
+Keep meow & develop purrself
 
 (c) LalkaCorporation
